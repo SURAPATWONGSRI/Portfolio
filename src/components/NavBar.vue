@@ -32,8 +32,10 @@
     </div>
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1">
-        <li><a>Home</a></li>
-        <li><a>Resume</a></li>
+        <li><RouterLink to="/">Home</RouterLink></li>
+        <li>
+          <RouterLink to="/about">Resume</RouterLink>
+        </li>
         <li><a>Project</a></li>
         <li><a>Contact</a></li>
       </ul>
