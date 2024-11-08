@@ -50,9 +50,9 @@ To maximize productivity, we recommend using:
 
    ```bash
    npm run dev
-
-   Open your browser and navigate to http://localhost:5173 to see the app in action.
    ```
+
+   Open your browser and navigate to <http://localhost:5173> to see the app in action.
 
 ## 🛠 Customize Configuration
 
@@ -61,8 +61,10 @@ Refer to the Vite Configuration Documentation for more options to customize the 
 ## 📦 Build for Production
 
 To compile and optimize the app for production:
+
 ```bash
 npm run build
+```
 
 The compiled files will be in the dist/ directory, ready for deployment.
 
