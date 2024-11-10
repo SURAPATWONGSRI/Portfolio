@@ -11,6 +11,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^1.1.0",
     "pinia": "^2.2.6",
     "pinia-plugin-persistedstate": "^4.1.2",
     "remixicon": "^4.5.0",
