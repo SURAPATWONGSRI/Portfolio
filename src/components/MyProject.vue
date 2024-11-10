@@ -69,7 +69,7 @@ export default {
 
     const projects = reactive([
       {
-        name: 'เว็บไซต์รีวิวภาพยนต์',
+        name: 'เว็บไซต์รีวิวภาพยนตร์',
         description: 'เว็บไซต์รีวิวภาพยนต์ เขียนด้วย PHP+MySQL',
         languages: ['PHP', 'MySQL'],
         date: '2023-01-15',
@@ -77,7 +77,7 @@ export default {
         // link: 'https://example.com/movie-review', // เพิ่มลิงก์ของโปรเจค
       },
       {
-        name: 'E-commerce',
+        name: 'E-commerce Web app',
         description: 'เว็บไซต์ร้านค้าออนไลน์ E-Commerce',
         languages: ['Node.js', 'JavaScript', 'MySQL'],
         date: '2022-11-30',
