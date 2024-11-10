@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar bg-base-200">
+  <div class="navbar bg-base-100/85 shadow-sm backdrop-blur fixed top-0 left-0 w-full z-10">
     <div class="navbar-start">
       <div class="dropdown">
         <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -20,40 +20,52 @@
         </div>
         <ul
           tabindex="0"
-          class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+          class="menu menu-sm dropdown-content bg-base-300 rounded-box z-[1] mt-3 w-52 p-2 shadow"
         >
-          <li><a>Home</a></li>
-          <li><a>Resume</a></li>
-          <li><a>Project</a></li>
-          <li><a>Contact</a></li>
+          <li><RouterLink to="/">Home</RouterLink></li>
+          <li><RouterLink :to="{ hash: '#about' }">Resume</RouterLink></li>
+          <li><RouterLink :to="{ hash: '#project' }">Project</RouterLink></li>
+          <li><RouterLink :to="{ hash: '#contact' }">Contact</RouterLink></li>
         </ul>
       </div>
-      <a class="btn btn-ghost text-xl text-success">PORTFOLIO</a>
+      <a class="btn btn-ghost text-xl text-success">MyPORTFOLIO</a>
     </div>
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1">
         <li><RouterLink to="/">Home</RouterLink></li>
-        <li>
-          <RouterLink to="/about">Resume</RouterLink>
-        </li>
-        <li><a>Project</a></li>
-        <li><a>Contact</a></li>
+        <li><RouterLink :to="{ hash: '#about' }">Resume</RouterLink></li>
+        <li><RouterLink :to="{ hash: '#project' }">Project</RouterLink></li>
+        <li><RouterLink :to="{ hash: '#contact' }">Contact</RouterLink></li>
       </ul>
     </div>
     <div class="navbar-end">
-      <!-- ปุ่มสลับธีมแบบ Toggle Switch -->
-      <label class="switch">
-        <input
-          type="checkbox"
-          @click="themeStore.toggleTheme"
-          :checked="themeStore.currentTheme === 'forest'"
-        />
-        <span class="slider">
-          <!-- แสดงไอคอน Sun หรือ Moon ตามธีม -->
-          <i v-if="themeStore.currentTheme === 'forest'" class="remix-icon ri-sun-line"></i>
-          <i v-else class="remix-icon ri-moon-line"></i>
-        </span>
-      </label>
+      <div class="dropdown dropdown-end">
+        <label tabindex="0" class="btn btn-ghost">
+          <i v-if="themeStore.currentTheme === 'cupcake'" class="remix-icon ri-sun-fill"></i>
+          <i v-else class="remix-icon ri-moon-fill"></i>
+          <i class="remix-icon ri-arrow-down-s-line"></i>
+        </label>
+        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40">
+          <li
+            @click="changeTheme('cupcake')"
+            :class="{ 'opacity-50': themeStore.currentTheme === 'cupcake' }"
+          >
+            <a :disabled="themeStore.currentTheme === 'cupcake'">
+              <i class="remix-icon ri-sun-line"></i>
+              Light
+            </a>
+          </li>
+          <li
+            @click="changeTheme('forest')"
+            :class="{ 'opacity-50': themeStore.currentTheme === 'forest' }"
+          >
+            <a :disabled="themeStore.currentTheme === 'forest'">
+              <i class="remix-icon ri-moon-line"></i>
+              Dark
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -62,76 +74,25 @@
 import { onMounted } from 'vue'
 import { useThemeStore } from '@/stores/themeStore'
 
-// เข้าถึง store สำหรับธีม
 const themeStore = useThemeStore()
 
-// ตั้งค่า theme เมื่อคอมโพเนนต์โหลด
+// ฟังก์ชันเปลี่ยนธีม
+const changeTheme = (theme) => {
+  themeStore.currentTheme = theme
+  localStorage.setItem('theme', theme) // เก็บค่าใหม่ลงใน localStorage
+  document.documentElement.setAttribute('data-theme', theme) // ตั้งค่าธีมในเอกสาร
+}
+
 onMounted(() => {
-  themeStore.initializeTheme() // เรียกใช้ฟังก์ชัน initializeTheme เมื่อคอมโพเนนต์โหลด
+  themeStore.initializeTheme()
 })
 </script>
 
 <style scoped>
-/* สไตล์ของ Toggle Switch */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 50px; /* ปรับขนาดเล็กลง */
-  height: 28px; /* ปรับขนาดเล็กลง */
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 34px;
-}
-
-.slider:before {
-  position: absolute;
-  content: '';
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: 0.4s;
-}
-
-/* สลับสีเมื่อเลือกธีม 'forest' (Dark Mode) */
-input:checked + .slider {
-  background-color: #1eb854;
-}
-
-input:checked + .slider:before {
-  transform: translateX(22px); /* ปรับตำแหน่งของลูกกลม */
-}
-
-/* การจัดตำแหน่งของไอคอน */
-.slider i {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 14px;
-}
-
-.slider i.ri-sun-line {
-  left: 8px;
-}
-
-.slider i.ri-moon-line {
-  right: 8px;
+/* Custom styling for dropdown */
+.dropdown-content li a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 </style>
