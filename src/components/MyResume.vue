@@ -73,7 +73,7 @@
               class="flex items-center gap-2 rounded-md p-2"
             >
               <img :src="skill.image" alt="skill icon" class="w-8 h-8" />
-              <span class="text-gray-600">{{ skill.name }}</span>
+              <span :class="textClassSkill">{{ skill.name }}</span>
             </div>
           </div>
         </section>
@@ -93,6 +93,7 @@ import htmlIcon from '@/assets/icon/html.svg'
 import nodeJS from '@/assets/icon/nodejs.svg'
 import python from '@/assets/icon/python.svg'
 import mySQL from '@/assets/icon/MySQL.svg'
+import php from '@/assets/icon/php.svg'
 
 export default defineComponent({
   setup() {
@@ -105,7 +106,9 @@ export default defineComponent({
     const textClass = computed(() => {
       return themeStore.currentTheme === 'cupcake' ? 'text-gray-600' : 'text-gray-200'
     })
-
+    const textClassSkill = computed(() => {
+      return themeStore.currentTheme === 'cupcake' ? 'text-gray-600' : 'text-gray-200'
+    })
     const educationHistory = ref([
       {
         degree: 'วิทยาศาสตร์บัณฑิตสาขาเทคโนโลยีคอมพิวเตอร์',
@@ -139,6 +142,7 @@ export default defineComponent({
       { name: 'Vue.js', image: vueIcon },
       { name: 'Python', image: python },
       { name: 'MySQL', image: mySQL },
+      { name: 'PHP', image: php },
     ])
 
     return {
@@ -147,6 +151,7 @@ export default defineComponent({
       skills,
       themeClass,
       textClass,
+      textClassSkill,
     }
   },
 })

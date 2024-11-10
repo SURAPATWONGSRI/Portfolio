@@ -13,6 +13,7 @@
           ปัจจุบันเป็นนักศึกษาจาก มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี คณะวิทยาศาสตร์และเทคโนโลยี
           สาขาเทคโนโลยีคอมพิวเตอร์ ชั้นปีที่ 4
         </p>
+
         <RouterLink class="btn btn-neutral text-white font-light" :to="{ hash: '#contact' }">
           <i class="ri-id-card-fill"></i> Contact
         </RouterLink>

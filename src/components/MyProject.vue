@@ -26,7 +26,9 @@
 
         <!-- Card Body -->
         <div class="card-body p-6">
-          <h2 :class="['card-title text-2xl font-semibold', textTheme]">{{ project.name }}</h2>
+          <h2 :class="['card-title text-2xl font-semibold', textTheme]">
+            <a :href="project.link" target="_blank">{{ project.name }}</a>
+          </h2>
           <div class="flex flex-wrap gap-2">
             <span
               v-for="(lang, idx) in project.languages"
@@ -36,7 +38,17 @@
               {{ lang }}
             </span>
           </div>
-          <p :class="['mt-2', textDescriptionTheme]">{{ project.description }}</p>
+          <p :class="['mt-2', textDescriptionTheme]">
+            {{ project.description }}
+            <a
+              v-if="project.link"
+              :href="project.link"
+              target="_blank"
+              class="text-blue-500 hover:underline"
+            >
+              {{ project.link }}
+            </a>
+          </p>
         </div>
       </div>
     </div>
@@ -62,6 +74,7 @@ export default {
         languages: ['PHP', 'MySQL'],
         date: '2023-01-15',
         image: MovieReview,
+        // link: 'https://example.com/movie-review', // เพิ่มลิงก์ของโปรเจค
       },
       {
         name: 'E-commerce',
@@ -69,20 +82,23 @@ export default {
         languages: ['Node.js', 'JavaScript', 'MySQL'],
         date: '2022-11-30',
         image: ecommerce,
+        // link: 'https://example.com/e-commerce', // เพิ่มลิงก์ของโปรเจค
       },
       {
         name: 'The Local Weather Web App',
-        description: 'เว็บไซต์ดูอุณหภูมิสภาพอากาศ',
-        languages: ['Vue.js', 'JavaScript'],
+        description: 'เว็บไซต์ดูอุณหภูมิสภาพอากาศโดย fecth API มา (openweatherAPI,mapboxAPI) ',
+        languages: ['Vue.js', 'JavaScript', 'fetch API'],
         date: '2023-05-10',
         image: weatherApp,
+        link: 'https://thelocalweather.vercel.app/', // ลิงก์โปรเจคนี้
       },
       {
         name: 'ระบบดูข้อมูลการจองคิวนัดหมาย',
         description:
-          'ดูข้อมูลประวัติการจองคิว จำนวนการจองคิวนัดหมายทั้งหมดและข้อมูลการรีวิวของร้านค้าในฝั่ง Customers',
+          'ดูข้อมูลประวัติการจองคิว จำนวนการจองคิวทั้งหมด และข้อมูลการรีวิวของร้านค้าในฝั่ง Customers',
         languages: ['Vue.js', 'JavaScript', 'Python', 'MySQL'],
         image: Booking,
+        // link: 'https://example.com/booking-system', // เพิ่มลิงก์ของโปรเจค
       },
     ])
 
@@ -114,6 +130,8 @@ export default {
           return 'bg-success text-white'
         case 'MySQL':
           return 'bg-info text-white'
+        case 'fetch API':
+          return 'bg-error text-white'
         default:
           return 'bg-gray-400 text-white'
       }
