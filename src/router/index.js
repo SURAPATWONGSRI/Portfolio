@@ -1,7 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import ResumeView from '../views/ResumeView.vue'
-import ProjectView from '@/views/ProjectView.vue'
+import HomeView from '@/views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,22 +11,6 @@ const router = createRouter({
       meta: {
         title: 'Home',
       },
-    },
-    {
-      path: '/about',
-      name: 'about',
-      meta: {
-        title: 'Resume',
-      },
-      component: ResumeView,
-    },
-    {
-      path: '/project',
-      name: 'project',
-      meta: {
-        title: 'My Project',
-      },
-      component: ProjectView,
     },
   ],
   scrollBehavior(to, from, savedPosition) {
@@ -46,7 +28,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = `${to.meta.title} | Portfolio`
+  document.title = `${to.meta.title} - Portfolio`
   next()
 })
 

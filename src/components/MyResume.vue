@@ -5,38 +5,35 @@
     </div>
     <div class="max-w-5xl mx-auto flex flex-col lg:flex-row gap-8">
       <!-- Sidebar -->
-      <aside class="lg:w-1/3 p-6 shadow-md text-center" :class="themeClass">
-        <!-- Header -->
+      <aside :class="[themeClass, 'lg:w-1/3 p-6 shadow-md text-center rounded-lg ']">
         <header>
           <img
             class="w-32 h-32 mx-auto rounded-full shadow-lg"
-            src="https://media.discordapp.net/attachments/935535352096124960/1290941930091319368/IMG_4206.jpg?ex=672fbb1c&is=672e699c&hm=ef42e5c66fbb23d7ac00dad80a9aae76ad669fc1700c2507b316443c0e101863&=&format=webp"
-            alt="Profile Image"
+            src="@/assets/Profile.jpg"
+            alt="Profile"
           />
           <h1 class="text-3xl font-bold mt-4 text-success">สุรพัศ วงศรี</h1>
-          <p class="text-gray-500">นักศึกษา</p>
+          <p :class="textClass">นักศึกษา</p>
         </header>
-
         <!-- Contact Info -->
         <section class="mt-6 text-left">
-          <p class="flex items-center gap-2">
+          <p class="flex items-center gap-2 p-2">
             <i class="ri-mail-fill text-success"></i>devkim1910@gmail.com
           </p>
-          <p class="flex items-center gap-2">
+          <p class="flex items-center gap-2 p-2">
             <i class="ri-phone-fill text-success"></i>(+66) 94-371-8956
           </p>
-          <p class="flex items-center gap-2">
+          <p class="flex items-center gap-2 p-2">
             <i class="ri-map-pin-fill text-success"></i>Bangkok, Thailand
           </p>
         </section>
       </aside>
 
       <!-- Main Content -->
-      <main class="lg:w-2/3 shadow-md rounded-md p-6" :class="themeClass">
-        <!-- About -->
+      <main :class="[themeClass, 'lg:w-2/3 shadow-md rounded-lg p-6']">
         <section class="mb-8">
           <h2 class="text-2xl font-bold mb-3"><i class="ri-user-line mr-2"></i>About Me</h2>
-          <p class="text-gray-500 leading-relaxed">
+          <p :class="textClass">
             ปัจจุบันเป็นนักศึกษาจาก มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี คณะวิทยาศาสตร์และเทคโนโลยี
             สาขาเทคโนโลยีคอมพิวเตอร์ ชั้นปีที่ 4
           </p>
@@ -101,9 +98,12 @@ export default defineComponent({
   setup() {
     const themeStore = useThemeStore()
 
-    // Function to check the current theme and apply bg-white if cupcake
+    // เช็คธีมปัจจุบันเพื่อใช้ class และสีที่เหมาะสม
     const themeClass = computed(() => {
-      return themeStore.currentTheme === 'cupcake' ? 'bg-white' : ''
+      return themeStore.currentTheme === 'cupcake' ? 'bg-white' : 'bg-[#211a1a]'
+    })
+    const textClass = computed(() => {
+      return themeStore.currentTheme === 'cupcake' ? 'text-gray-600' : 'text-gray-200'
     })
 
     const educationHistory = ref([
@@ -146,11 +146,10 @@ export default defineComponent({
       experiences,
       skills,
       themeClass,
+      textClass,
     }
   },
 })
 </script>
 
-<style scoped>
-/* เพิ่มสไตล์สำหรับธีมของคุณที่นี่ */
-</style>
+<style scoped></style>

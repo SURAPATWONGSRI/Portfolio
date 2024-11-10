@@ -22,8 +22,8 @@
           tabindex="0"
           class="menu menu-sm dropdown-content bg-base-300 rounded-box z-[1] mt-3 w-52 p-2 shadow"
         >
-          <li><RouterLink to="/">Home</RouterLink></li>
-          <li><RouterLink :to="{ hash: '#about' }">Resume</RouterLink></li>
+          <li><RouterLink :to="{ hash: '#home' }">Home</RouterLink></li>
+          <li><RouterLink :to="{ hash: '#resume' }">Resume</RouterLink></li>
           <li><RouterLink :to="{ hash: '#project' }">Project</RouterLink></li>
           <li><RouterLink :to="{ hash: '#contact' }">Contact</RouterLink></li>
         </ul>
@@ -32,8 +32,8 @@
     </div>
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1">
-        <li><RouterLink to="/">Home</RouterLink></li>
-        <li><RouterLink :to="{ hash: '#about' }">Resume</RouterLink></li>
+        <li><RouterLink :to="{ hash: '#home' }">Home</RouterLink></li>
+        <li><RouterLink :to="{ hash: '#resume' }">Resume</RouterLink></li>
         <li><RouterLink :to="{ hash: '#project' }">Project</RouterLink></li>
         <li><RouterLink :to="{ hash: '#contact' }">Contact</RouterLink></li>
       </ul>
