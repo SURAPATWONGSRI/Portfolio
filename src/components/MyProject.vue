@@ -1,62 +1,102 @@
 <template>
-  <div class="container mx-auto px-4">
-    <!-- Heading -->
-    <div class="text-center py-10">
-      <h1 class="text-5xl font-bold text-primary">MY PROJECTS</h1>
-    </div>
-
-    <!-- Card Container -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div class="min-h-screen bg-base-200 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-15">
+      <!-- Geometric Circles -->
       <div
-        v-for="(project, index) in projects"
-        :key="index"
-        :class="[
-          'card card-bordered shadow-md transition-transform duration-300 transform hover:scale-105',
-          cardTheme,
-        ]"
-      >
-        <!-- Project Image -->
-        <figure>
-          <img
-            :src="project.image"
-            alt="Project Image"
-            class="w-full h-52 object-cover rounded-t-lg"
-          />
-        </figure>
-
-        <!-- Card Body -->
-        <div class="card-body p-6">
-          <h2 :class="['card-title text-2xl font-semibold', textTheme]">
-            <a :href="project.link" target="_blank">{{ project.name }}</a>
-          </h2>
-          <div class="flex flex-wrap gap-2">
-            <span
-              v-for="(lang, idx) in project.languages"
-              :key="idx"
-              :class="['badge', getBadgeColor(lang)]"
-            >
-              {{ lang }}
-            </span>
+        class="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-primary via-secondary to-accent opacity-70 rounded-full"
+      ></div>
+      <div
+        class="absolute -bottom-40 -left-40 w-72 h-72 bg-gradient-to-tl from-success via-warning to-neutral opacity-80 rounded-full"
+      ></div>
+      <!-- Triangular Overlay with Gradient -->
+      <div
+        class="absolute -top-16 -left-24 w-96 h-96 bg-gradient-to-b from-primary to-transparent rotate-45 opacity-40"
+      ></div>
+      <!-- Diagonal Stripes -->
+      <div
+        class="absolute top-10 right-10 w-80 h-80 bg-transparent border-t-8 border-l-8 border-dashed border-success rotate-45"
+      ></div>
+      <!-- Soft Blur Layer -->
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-base-200 via-base-300 opacity-50 blur-lg"
+      ></div>
+    </div>
+    <div class="p-10 bg-base-200">
+      <!-- Hero Section -->
+      <section class="min-h-screen bg-base-200">
+        <div class="hero py-20 bg-base-200">
+          <div class="hero-content text-center">
+            <div class="text-center">
+              <div class="badge badge-secondary mb-4">Projects</div>
+              <h1 class="text-5xl font-bold mb-4">My projects</h1>
+              <p class="text-xl text-base-content/60 max-w-xl mx-auto">โปรเจกต์ทั้งหมด</p>
+            </div>
           </div>
-          <p :class="['mt-2', textDescriptionTheme]">
-            {{ project.description }}
-            <a
-              v-if="project.link"
-              :href="project.link"
-              target="_blank"
-              class="text-blue-500 hover:underline"
-            >
-              {{ project.link }}
-            </a>
-          </p>
         </div>
-      </div>
+
+        <!-- Projects Grid Section -->
+        <div class="container mx-auto px-4">
+          <!-- Projects Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div
+              v-for="(project, index) in filteredProjects"
+              :key="index"
+              class="card card-compact max-w-sm shadow-xl mx-auto w-full transition-all duration-300 hover:scale-105"
+              :class="cardTheme"
+            >
+              <!-- Project Image with Overlay -->
+              <figure class="relative h-48">
+                <img :src="project.image" :alt="project.name" class="w-full h-full object-cover" />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-base-300/70 to-transparent"
+                ></div>
+              </figure>
+
+              <div class="card-body p-6">
+                <!-- Project Title -->
+                <h2 class="card-title text-lg text-primary font-bold" :class="textTheme">
+                  {{ project.name }}
+                </h2>
+
+                <!-- Technologies -->
+                <div class="flex flex-wrap gap-2 my-3">
+                  <span
+                    v-for="(lang, idx) in project.languages"
+                    :key="idx"
+                    :class="['badge badge-sm', getBadgeColor(lang)]"
+                  >
+                    {{ lang }}
+                  </span>
+                </div>
+
+                <!-- Description -->
+                <p class="text-sm line-clamp-3" :class="textDescriptionTheme">
+                  {{ project.description }}
+                </p>
+
+                <!-- Action Buttons -->
+                <div class="card-actions justify-end mt-4">
+                  <a
+                    v-if="project.link"
+                    :href="project.link"
+                    target="_blank"
+                    class="text-secondary"
+                  >
+                    <i class="ri-link mr-1"></i>
+                    <span>{{ project.link }}</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 </template>
 
 <script>
-import { computed, reactive } from 'vue'
+import { ref, computed } from 'vue'
 import { useThemeStore } from '@/stores/themeStore'
 import ecommerce from '@/assets/e-commerce.jpg'
 import MovieReview from '@/assets/MovieReview.jpg'
@@ -66,15 +106,15 @@ import Booking from '@/assets/Booking.png'
 export default {
   setup() {
     const themeStore = useThemeStore()
+    const selectedTech = ref('All')
 
-    const projects = reactive([
+    const projects = ref([
       {
         name: 'เว็บไซต์รีวิวภาพยนตร์',
         description: 'เว็บไซต์รีวิวภาพยนต์ เขียนด้วย PHP+MySQL',
         languages: ['PHP', 'MySQL'],
         date: '2023-01-15',
         image: MovieReview,
-        // link: 'https://example.com/movie-review', // เพิ่มลิงก์ของโปรเจค
       },
       {
         name: 'E-commerce Web app',
@@ -82,15 +122,14 @@ export default {
         languages: ['Node.js', 'JavaScript', 'MySQL'],
         date: '2022-11-30',
         image: ecommerce,
-        // link: 'https://example.com/e-commerce', // เพิ่มลิงก์ของโปรเจค
       },
       {
         name: 'The Local Weather Web App',
-        description: 'เว็บไซต์ดูอุณหภูมิสภาพอากาศโดย fecth API มา (openweatherAPI,mapboxAPI) ',
+        description: 'เว็บไซต์ดูอุณหภูมิสภาพอากาศโดย fecth API มา (openweatherAPI,mapboxAPI)',
         languages: ['Vue.js', 'JavaScript', 'fetch API'],
         date: '2023-05-10',
         image: weatherApp,
-        link: 'https://thelocalweather.vercel.app/', // ลิงก์โปรเจคนี้
+        link: 'https://thelocalweather.vercel.app/',
       },
       {
         name: 'ระบบดูข้อมูลการจองคิวนัดหมาย',
@@ -98,50 +137,68 @@ export default {
           'ดูข้อมูลประวัติการจองคิว จำนวนการจองคิวทั้งหมด และข้อมูลการรีวิวของร้านค้าในฝั่ง Customers',
         languages: ['Vue.js', 'JavaScript', 'Python', 'MySQL'],
         image: Booking,
-        // link: 'https://example.com/booking-system', // เพิ่มลิงก์ของโปรเจค
       },
     ])
 
+    // Get unique technologies
+    const technologies = computed(() => {
+      const techs = new Set(['All'])
+      projects.value.forEach((project) => {
+        project.languages.forEach((lang) => techs.add(lang))
+      })
+      return Array.from(techs)
+    })
+
+    // Filter projects by technology
+    const filteredProjects = computed(() => {
+      if (selectedTech.value === 'All') return projects.value
+      return projects.value.filter((project) => project.languages.includes(selectedTech.value))
+    })
+
     const cardTheme = computed(() =>
-      themeStore.currentTheme === 'forest' ? 'bg-forest-card' : 'bg-white',
+      themeStore.currentTheme === 'forest' ? 'bg-base-100' : 'bg-white',
     )
+
     const textTheme = computed(() =>
-      themeStore.currentTheme === 'forest' ? 'text-gray-100' : 'text-black',
+      themeStore.currentTheme === 'forest' ? 'text-gray-100' : 'text-gray-900',
     )
+
     const textDescriptionTheme = computed(() =>
       themeStore.currentTheme === 'forest' ? 'text-gray-300' : 'text-gray-600',
     )
 
+    const filterByTech = (tech) => {
+      selectedTech.value = tech
+    }
+
+    const showDetails = (project) => {
+      // Implement modal or navigation to project details
+      console.log('Show details for:', project.name)
+    }
+
     const getBadgeColor = (language) => {
-      switch (language) {
-        case 'JavaScript':
-          return 'bg-yellow-500 text-white'
-        case 'Vue.js':
-          return 'bg-green-500 text-white'
-        case 'Python':
-          return 'bg-blue-500 text-white'
-        case 'PHP':
-          return 'bg-[#777BB3] text-white'
-        case 'Java':
-          return 'bg-red-500 text-white'
-        case 'Spring Boot':
-          return 'bg-green-700 text-white'
-        case 'Node.js':
-          return 'bg-success text-white'
-        case 'MySQL':
-          return 'bg-info text-white'
-        case 'fetch API':
-          return 'bg-error text-white'
-        default:
-          return 'bg-gray-400 text-white'
+      const colors = {
+        JavaScript: 'bg-yellow-500 text-white',
+        'Vue.js': 'bg-green-500 text-white',
+        Python: 'bg-blue-500 text-white',
+        PHP: 'bg-[#777BB3] text-white',
+        'Node.js': 'bg-success text-white',
+        MySQL: 'bg-info text-white',
+        'fetch API': 'bg-error text-white',
       }
+      return colors[language] || 'bg-gray-400 text-white'
     }
 
     return {
       projects,
+      technologies,
+      selectedTech,
+      filteredProjects,
       cardTheme,
       textTheme,
       textDescriptionTheme,
+      filterByTech,
+      showDetails,
       getBadgeColor,
     }
   },
@@ -149,24 +206,5 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  max-width: 1200px;
-}
-.card {
-  border-radius: 0.75rem;
-}
-.card-title {
-  margin-bottom: 0.5rem;
-}
-.bg-forest-card {
-  background-color: #211a1a;
-}
-.bg-cupcake-card {
-  background-color: #fff;
-}
-.badge {
-  padding: 0.25rem 0.75rem;
-  font-size: 0.875rem;
-  border-radius: 0.5rem;
-}
+/* Add any additional styling here */
 </style>
