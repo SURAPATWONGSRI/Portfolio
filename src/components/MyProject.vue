@@ -27,9 +27,15 @@
         <div class="hero py-20 bg-base-200">
           <div class="hero-content text-center">
             <div class="text-center">
-              <div class="badge badge-secondary mb-4">Projects</div>
-              <h1 class="text-5xl font-bold mb-4">My projects</h1>
-              <p class="text-xl text-base-content/60 max-w-xl mx-auto">โปรเจกต์ทั้งหมด</p>
+              <div class="badge badge-secondary badge-outline p-4 mb-6">Projects</div>
+              <h1
+                class="text-5xl font-bold mb-4 py-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+              >
+                My projects
+              </h1>
+              <p class="text-xl text-base-content/60 max-w-xl leading-relaxed mx-auto">
+                โปรเจกต์ทั้งหมด
+              </p>
             </div>
           </div>
         </div>

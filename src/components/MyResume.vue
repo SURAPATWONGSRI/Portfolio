@@ -1,8 +1,12 @@
 <template>
   <div class="relative p-10 bg-base-200 text-base-content">
     <div class="text-center py-10 relative">
-      <h1 class="text-5xl font-bold">Resume</h1>
-      <p class="text-xl text-gray-500 mt-4">ประวัติโดยย่อ</p>
+      <h1
+        class="text-5xl font-bold py-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+      >
+        Resume
+      </h1>
+      <p class="text-xl text-base-content/70 max-w-2xl mx-auto leading-relaxed">ประวัติโดยย่อ</p>
     </div>
 
     <!-- Main Content Section -->

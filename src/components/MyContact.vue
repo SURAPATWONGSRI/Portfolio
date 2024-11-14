@@ -54,11 +54,15 @@ const contacts = [
       ></div>
     </div>
     <!-- Main Content -->
-    <div class="container mx-auto px-4 py-16 relative">
+    <div class="container mx-auto px-4 py-20 relative">
       <!-- Header Section -->
       <div class="text-center mb-16">
-        <div class="badge badge-secondary mb-4">Contact Us</div>
-        <h1 class="text-5xl font-bold mb-4">GET IN TOUCH</h1>
+        <div class="badge badge-secondary badge-outline p-4 mb-4">Contact</div>
+        <h1
+          class="text-5xl font-bold mb-4 py-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+        >
+          My Contacts
+        </h1>
         <p class="text-xl text-base-content/60 max-w-xl mx-auto">ช่องทางการติดต่อ</p>
       </div>
 
