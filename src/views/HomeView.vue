@@ -3,7 +3,7 @@ import HeroProfile from '@/components/HeroProfile.vue'
 import ResumeView from '@/components/MyResume.vue'
 import Project from '@/components/MyProject.vue'
 import Contact from '@/components/MyContact.vue'
-import Mystackskill from '@/components/Mystackskill.vue'
+import MyTechnology from '../components/MyTechnology.vue'
 </script>
 
 <template>
@@ -12,7 +12,7 @@ import Mystackskill from '@/components/Mystackskill.vue'
       <HeroProfile />
     </section>
     <section>
-      <Mystackskill />
+      <MyTechnology />
     </section>
     <section id="resume">
       <ResumeView />
