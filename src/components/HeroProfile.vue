@@ -1,10 +1,9 @@
 <template>
   <div class="hero bg-base-200 min-h-screen relative overflow-hidden">
-    <!-- Previous content remains the same... -->
     <div class="hero-content flex-col lg:flex-row gap-10 lg:gap-16 px-6 lg:px-20 relative">
       <img
         src="@/assets/picHero.jpg"
-        class="w-full max-w-sm mt-20 lg:max-w-sm rounded-lg shadow-md mx-auto lg:mx-0 transition-all duration-700 animate-fade-in"
+        class="w-full max-w-md mt-20 lg:max-w-md rounded-lg shadow-md mx-auto lg:mx-0 transition-all duration-700 animate-fade-in"
         alt="Surapath Wongsri - Student at Rajamangala University of Technology Thanyaburi"
         title="Surapath Wongsri"
         role="img"
@@ -12,18 +11,25 @@
 
       <div class="text-center lg:text-left">
         <h2 class="text-3xl lg:text-4xl font-extrabold text-primary mb-4 animate-slide-in">
-          👋 สวัสดีครับ, ผม สุรพัศ วงศรี
+          <span>👋 สวัสดีครับ, ผม สุรพัศ วงศรี</span>
         </h2>
-        <div class="p-4">
-          <TypeWriter :text="introduction" :delay="50" class="text-lg text-gray-500" />
+        <div class="p-8">
+          <span
+            ><TypeWriter
+              :text="introduction"
+              :delay="25"
+              class="text-xl autumn:text-gray-800 forest:text-gray-300"
+          /></span>
         </div>
 
-        <RouterLink
-          class="btn ml-2 btn-primary text-white font-light rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 animate-bounce-in"
-          :to="{ hash: '#contact' }"
-        >
-          <i class="ri-id-card-fill"></i> Contact
-        </RouterLink>
+        <div class="p-4 mt-2">
+          <RouterLink
+            class="btn ml-2 btn-primary text-white font-light rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 animate-bounce-in"
+            :to="{ hash: '#contact' }"
+          >
+            <i class="ri-id-card-fill"></i> Contact Me
+          </RouterLink>
+        </div>
       </div>
     </div>
   </div>
@@ -80,7 +86,7 @@ const introduction = ref(
 )
 </script>
 
-<style>
+<style scoped>
 /* Custom animations */
 @keyframes fadeIn {
   from {
@@ -131,6 +137,7 @@ const introduction = ref(
   animation: bounceIn 1s cubic-bezier(0.36, 0, 0.66, 1);
   animation-fill-mode: both;
 }
+
 .typewriter-container {
   display: inline-block;
   position: relative;
@@ -156,7 +163,7 @@ const introduction = ref(
     opacity: 0;
   }
 }
-/* Optional: Add hover effects */
+
 .btn:hover {
   transform: translateY(-2px);
 }

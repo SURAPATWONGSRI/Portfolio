@@ -48,7 +48,7 @@
           <h2 class="text-3xl font-bold mb-3 text-primary flex items-center">
             <i class="ri-user-line mr-2"></i>About Me
           </h2>
-          <p :class="textClass" class="text-lg text-gray-700">
+          <p :class="textClass" class="text-lg text-gray-500">
             ปัจจุบันเป็นนักศึกษาจาก มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี คณะวิทยาศาสตร์และเทคโนโลยี
             สาขาเทคโนโลยีสารสนเทศและการสื่อสารดิจิทัล ชั้นปีที่ 4
           </p>

@@ -127,9 +127,9 @@ import figma from '@/assets/icon/figma.svg'
 import git from '@/assets/icon/git.svg'
 import gitlab from '@/assets/icon/gitlab.svg'
 import github from '@/assets/icon/github.svg'
-import Vercel from '@/assets/icon/Vercel.svg'
 import docker from '@/assets/icon/docker.svg'
 import Cplusplus from '@/assets/icon/Cplusplus.svg'
+import Vercel from '@/assets/icon/Vercel.svg'
 
 const carouselRef = ref(null)
 const currentSlide = ref(0)
