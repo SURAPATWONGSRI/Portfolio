@@ -4,7 +4,7 @@
     <div class="hero-content flex-col lg:flex-row gap-10 lg:gap-16 px-6 lg:px-20 relative">
       <img
         src="@/assets/picHero.jpg"
-        class="w-full max-w-md lg:max-w-md rounded-lg shadow-2xl mx-auto lg:mx-0 transition-all duration-700 animate-fade-in"
+        class="w-full max-w-sm mt-20 lg:max-w-sm rounded-lg shadow-md mx-auto lg:mx-0 transition-all duration-700 animate-fade-in"
         alt="Surapath Wongsri - Student at Rajamangala University of Technology Thanyaburi"
         title="Surapath Wongsri"
         role="img"
@@ -19,7 +19,7 @@
         </div>
 
         <RouterLink
-          class="btn ml-2 btn-neutral text-white font-light rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 animate-bounce-in"
+          class="btn ml-2 btn-primary text-white font-light rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 animate-bounce-in"
           :to="{ hash: '#contact' }"
         >
           <i class="ri-id-card-fill"></i> Contact

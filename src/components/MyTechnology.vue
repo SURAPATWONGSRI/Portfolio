@@ -129,6 +129,7 @@ import gitlab from '@/assets/icon/gitlab.svg'
 import github from '@/assets/icon/github.svg'
 import vercel from '@/assets/icon/vercel.svg'
 import docker from '@/assets/icon/docker.svg'
+import Cplusplus from '@/assets/icon/Cplusplus.svg'
 
 const carouselRef = ref(null)
 const currentSlide = ref(0)
@@ -138,6 +139,7 @@ const stacksList = [
   {
     title: 'Languages',
     items: [
+      { name: 'C++', icon: Cplusplus },
       { name: 'JavaScript', icon: jsIcon },
       { name: 'PHP', icon: php },
       { name: 'Python', icon: python },
