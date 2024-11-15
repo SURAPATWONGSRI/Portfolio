@@ -36,7 +36,7 @@
             <i class="ri-phone-fill text-primary"></i> (+66) 94-371-8956
           </p>
           <p class="flex items-center gap-2 p-2">
-            <i class="ri-map-pin-fill text-primary"></i> Bangkok, Thailand
+            <i class="ri-map-pin-fill text-primary"></i> Sriracha, Chonburi, Thailand
           </p>
         </section>
       </aside>
@@ -91,7 +91,7 @@
             <div
               v-for="(skill, index) in skills"
               :key="index"
-              class="flex items-center gap-2 rounded-lg p-4 shadow-md bg-base-200 hover:bg-primary hover:text-white"
+              class="flex items-center gap-2 rounded-lg p-4"
             >
               <img :src="skill.image" alt="skill icon" class="w-8 h-8" />
               <span :class="textClassSkill" class="font-medium text-lg">{{ skill.name }}</span>
@@ -121,7 +121,7 @@ export default defineComponent({
     const themeStore = useThemeStore()
 
     const themeClass = computed(() => {
-      return themeStore.currentTheme === 'cupcake' ? 'bg-white' : 'bg-base-100'
+      return themeStore.currentTheme === 'cupcake' ? 'bg-base-100' : 'bg-base-100'
     })
     const textClass = computed(() => {
       return themeStore.currentTheme === 'cupcake' ? 'text-gray-600' : 'text-gray-200'

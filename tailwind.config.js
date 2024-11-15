@@ -10,7 +10,7 @@ export default {
     },
   },
   daisyui: {
-    themes: ['cupcake', 'forest'],
+    themes: ['autumn', 'forest'],
   },
   // eslint-disable-next-line no-undef
   plugins: [require('daisyui')],

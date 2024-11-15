@@ -44,11 +44,11 @@
 
         <!-- Navigation Buttons -->
         <div
-          class="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between items-center pointer-events-none px-4"
+          class="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between items-center pointer-events-none p-auto"
         >
           <button
             @click="scroll('left')"
-            class="btn btn-circle btn-primary btn-lg glass shadow-lg pointer-events-auto transform transition-all duration-300 hover:scale-110"
+            class="btn btn-circle btn-primary btn-md glass shadow-lg pointer-events-auto transform transition-all duration-300 hover:scale-110"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@
 
           <button
             @click="scroll('right')"
-            class="btn btn-circle btn-primary btn-lg glass shadow-lg pointer-events-auto transform transition-all duration-300 hover:scale-110"
+            class="btn btn-circle btn-primary btn-md glass shadow-lg pointer-events-auto transform transition-all duration-300 hover:scale-110"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

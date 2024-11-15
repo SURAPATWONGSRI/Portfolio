@@ -162,7 +162,7 @@ export default {
     })
 
     const cardTheme = computed(() =>
-      themeStore.currentTheme === 'forest' ? 'bg-base-100' : 'bg-white',
+      themeStore.currentTheme === 'forest' ? 'bg-base-100' : 'bg-base-100',
     )
 
     const textTheme = computed(() =>
