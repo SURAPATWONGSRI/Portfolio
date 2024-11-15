@@ -68,7 +68,7 @@
 
           <button
             @click="scroll('right')"
-            class="btn btn-circle btn-primary btn-md glass shadow-lg pointer-events-auto transform transition-all duration-300 hover:scale-110"
+            class="btn btn-circle btn-primary glass shadow-lg pointer-events-auto transform transition-all duration-300 hover:scale-110"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
