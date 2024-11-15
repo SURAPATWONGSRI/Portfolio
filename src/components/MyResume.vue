@@ -121,13 +121,13 @@ export default defineComponent({
     const themeStore = useThemeStore()
 
     const themeClass = computed(() => {
-      return themeStore.currentTheme === 'cupcake' ? 'bg-base-100' : 'bg-base-100'
+      return themeStore.currentTheme === 'autumn' ? 'bg-base-100' : 'bg-base-100'
     })
     const textClass = computed(() => {
-      return themeStore.currentTheme === 'cupcake' ? 'text-gray-600' : 'text-gray-200'
+      return themeStore.currentTheme === 'autumn' ? 'text-gray-600' : 'text-gray-200'
     })
     const textClassSkill = computed(() => {
-      return themeStore.currentTheme === 'cupcake' ? 'text-gray-600' : 'text-gray-200'
+      return themeStore.currentTheme === 'autumn' ? 'text-gray-600' : 'text-gray-200'
     })
     const educationHistory = ref([
       {

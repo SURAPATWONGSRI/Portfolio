@@ -90,7 +90,7 @@
           @click="toggleDropdown"
         >
           <i
-            v-if="themeStore.currentTheme === 'cupcake'"
+            v-if="themeStore.currentTheme === 'autumn'"
             class="remix-icon ri-sun-fill text-yellow-500"
           ></i>
           <i v-else class="remix-icon ri-moon-fill text-gray-500"></i>
@@ -107,19 +107,16 @@
           <li
             @click="
               () => {
-                changeTheme('cupcake')
+                changeTheme('autumn')
                 closeDropdown()
               }
             "
             :class="{
-              'opacity-50': themeStore.currentTheme === 'cupcake',
-              'hover:bg-primary hover:text-white': themeStore.currentTheme !== 'cupcake',
+              'opacity-50': themeStore.currentTheme === 'autumn',
+              'hover:bg-primary hover:text-white': themeStore.currentTheme !== 'autumn',
             }"
           >
-            <a
-              :disabled="themeStore.currentTheme === 'cupcake'"
-              class="flex items-center gap-2 p-2"
-            >
+            <a :disabled="themeStore.currentTheme === 'autumn'" class="flex items-center gap-2 p-2">
               <i class="remix-icon ri-sun-line"></i> Light
             </a>
           </li>
