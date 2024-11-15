@@ -127,7 +127,7 @@ import figma from '@/assets/icon/figma.svg'
 import git from '@/assets/icon/git.svg'
 import gitlab from '@/assets/icon/gitlab.svg'
 import github from '@/assets/icon/github.svg'
-import vercel from '@/assets/icon/vercel.svg'
+import Vercel from '@/assets/icon/Vercel.svg'
 import docker from '@/assets/icon/docker.svg'
 import Cplusplus from '@/assets/icon/Cplusplus.svg'
 
@@ -194,7 +194,7 @@ const stacksList = [
       { name: 'Gitlab', icon: gitlab },
       { name: 'Git', icon: git },
       { name: 'GitHub', icon: github },
-      { name: 'Vercel', icon: vercel },
+      { name: 'Vercel', icon: Vercel },
     ],
   },
 ]
