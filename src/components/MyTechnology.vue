@@ -131,7 +131,7 @@ import postman from "@/assets/icon/postman.svg";
 import python from "@/assets/icon/python.svg";
 import sourcetree from "@/assets/icon/sourcetree-1.svg";
 import Tailwind from "@/assets/icon/Tailwind.svg";
-import Vercel from "@/assets/icon/vercel.svg";
+import Vercel from "@/assets/icon/Vercel.svg";
 import vscode from "@/assets/icon/vscode.svg";
 import vueIcon from "@/assets/icon/vue.svg";
 import vuetify from "@/assets/icon/vuetify.svg";
