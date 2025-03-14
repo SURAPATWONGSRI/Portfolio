@@ -44,7 +44,7 @@
               @click="closeDropdown"
             >
               <i :class="`remix-icon ${item.icon}`"></i>
-              <span>{{ item.label }}</span>
+              <span>{{ item.label }} </span>
             </RouterLink>
           </li>
         </ul>
